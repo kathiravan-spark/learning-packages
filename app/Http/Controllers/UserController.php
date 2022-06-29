@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if($request->filled('search')){
-            $users = User::search($request->search)->get();
+            $users = User::search($request->search)->orderBy('id', 'ASEC')->get();
         }else{
             $users = User::get();
         }
